@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Results from './Results';
 
-const endPoint = "http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=&limit=5";
+// const endPoint = "http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=&limit=5";
 
 const key = '4uOolJLsKplOPt25PWCNWNXXmeQd9u5f';
 
@@ -10,7 +11,8 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      gifs: []
+      gifs: [],
+      search: ''
     }
 
   }
@@ -26,18 +28,27 @@ class App extends Component {
       return err
     }
   }
-  componentDidMount(){
-    this.fetchGifs().then((gifs) => {
-      this.setState({
-        gifs: gifs
-      })
+  handleSubmit = (search) => {
+    this.setState({
+      search: search
     })
   }
+  componentDidMount = async () => {
+    try {
+      await this.fetchGifs().then((gifs) => {
+        this.setState({
+          gifs: gifs
+        })
+      })
+    } catch (err) {
+      
+    }
+  }
   render() {
-    console.log(this.state.gifs);
+    console.log(this.state.search);
     return (
       <div className="App">
-        
+        <Results handleSubmit={this.handleSubmit} gifs={this.state.gifs}/>
       </div>
     );
   }
