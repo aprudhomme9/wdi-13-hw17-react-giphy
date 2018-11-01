@@ -19,21 +19,22 @@ class App extends Component {
 
   fetchGifs = async (search) => {
     try {
-      const search = search;
+      const query = search
       const limit = 20
-      const gifs = await fetch('http://api.giphy.com/v1/gifs/search?q=' + search + '&api_key=' + key + '&limit=' + limit);
+      const gifs = await fetch('http://api.giphy.com/v1/gifs/search?q=' + query + '&api_key=' + key + '&limit=' + limit);
       const gifsJSON = await gifs.json();
       return gifsJSON
     } catch (err) {
       return err
     }
   }
-  getResults = async (search, hasSearched) => {
+  getResults = async (search) => {
     try {
-      await this.fetchGifs(search).then((gifs) => {
+      const query = search;
+      await this.fetchGifs(query).then((gifs) => {
         this.setState({
-          gifs: gifs.data,
-          hasSearched: hasSearched
+          gifs: gifs.data
+          
         })
       })
     } catch (err) {
@@ -42,6 +43,7 @@ class App extends Component {
 }
 
   render() {
+    console.log(this.state.search);
     console.log(this.state.gifs);
     return (
       <div className="App">
