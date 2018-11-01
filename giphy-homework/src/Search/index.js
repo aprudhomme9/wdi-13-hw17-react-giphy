@@ -24,7 +24,7 @@ class Search extends Component {
 			<div>
 				<h1>Search All of the GIFS</h1>
 				<form onSubmit={this.handleSubmit}>
-          			<input onChange={this.handleChange} type="text" value={this.state.search} name='search' placeholder="Fkn Fetch The GIFs"/>
+          			<input onChange={this.handleChange} type="text" value={this.state.search} name='search' placeholder="Fetch The GIFs"/>
           			<button type="submit">Search</button>
       			</form>
 			</div>
@@ -34,6 +34,11 @@ class Search extends Component {
 			)
 	}
 }
+
+
+
+
+
 
 
 

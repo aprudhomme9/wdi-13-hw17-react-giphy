@@ -6,7 +6,6 @@ class Results extends Component {
 	}
 
 	render(){
-		console.log(this.props.gifs);
 		const gifs = this.props.gifs.map((gif, i) => {
 			return (
 				<div key={i}>

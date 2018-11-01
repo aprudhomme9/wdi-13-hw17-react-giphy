@@ -43,8 +43,6 @@ class App extends Component {
 }
 
   render() {
-    console.log(this.state.search);
-    console.log(this.state.gifs);
     return (
       <div className="App">
         <Search getResults={this.getResults} gifs={this.state.gifs}/>
