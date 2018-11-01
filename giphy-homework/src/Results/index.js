@@ -8,9 +8,9 @@ class Results extends Component {
 	render(){
 		const gifs = this.props.gifs.map((gif, i) => {
 			return (
-				<div key={i}>
-				<iframe src={gif.embed_url} width="480" height="202" frameBorder="0" className="giphy-embed" allowFullScreen/>
-				<p><a href={gif.url}>via GIPHY</a></p>
+				<div class='gif' key={i}>
+				<iframe src={gif.embed_url} width="700" height="250" frameBorder="0" className="giphy-embed" allowFullScreen/>
+				<p><a href={gif.url}>GIPHY</a></p>
 				</div>
 				)
 		})
